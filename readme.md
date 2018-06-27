@@ -41,7 +41,7 @@ $title = strtr($title, array('_' => '\_', '%' => '\%'));
 ```
 
 
-## Установка именoваных параметров
+## Установка именoванных параметров
 ```php
 $sql = "select * from films where title = :title and genre = :genre limit 1";
 $result = $db->prepare($sql);
@@ -52,7 +52,7 @@ $result->execute();
 //$result->execute(array('title'=>$title, 'genre'=>$genre));
 ```
 
-## Установка не именoваных параметров
+## Установка не именoванных параметров
 ```php
 $sql = "select * from films where title = ? and genre = ? limit 1";
 $result = $db->prepare($sql);
