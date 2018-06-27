@@ -1,21 +1,21 @@
-##Подключение к базе данных
+## Подключение к базе данных
 ```php
 $db = new.PDO('mysql:host=localhost;dbname=filmoteka','root','');
 ```
 
-##Выборка данных
+## Выборка данных
 ```php
 $result = $db->query($sql);
 ```
 
-##Получение записей по одной
+## Получение записей по одной
 ```php
 while ($film = $result->fetch(PDO::FETCH_ASSOC)){
 	//....
 }
 ```
 
-##Получение всех записей в массив
+## Получение всех записей в массив
 ```php
 $films = $result->fetchAll(PDO::FETCH_ASSOC);
 foreach ($films as $film) {
@@ -23,25 +23,25 @@ foreach ($films as $film) {
 }
 ```
 
-##Сопоставление поля переменной 
+## Сопоставление поля переменной 
 ```php
 $result->bindColumn('genre', $genre);
 // $genre можно использовать в цикле while fetch...
 ```
 
-##Количество обработанных записей
+## Количество обработанных записей
 ```php
 $result->rowCount();
 ```
 
-##Защита он инъекций в ручном режиме
+## Защита он инъекций в ручном режиме
 ```php
 $title = $db->quote($title);
 $title = strtr($title, array('_' => '\_', '%' => '\%'));
 ```
 
 
-##Установка именoваных параметров
+## Установка именoваных параметров
 ```php
 $sql = "select * from films where title = :title and genre = :genre limit 1";
 $result = $db->prepare($sql);
@@ -52,7 +52,7 @@ $result->execute();
 //$result->execute(array('title'=>$title, 'genre'=>$genre));
 ```
 
-##Установка не именoваных параметров
+## Установка не именoваных параметров
 ```php
 $sql = "select * from films where title = ? and genre = ? limit 1";
 $result = $db->prepare($sql);
