@@ -79,6 +79,13 @@ $genre = strtr($genre, array('_' => '\_', '%' => '\%'));
   echo "Жанр: {$film['genre']} <br>"; 
  }
 
+ $title = "<script> alert('Hello!'); </script>";
+ echo '<h3>Без защиты</h3>';
+ echo  $title;
+echo '<h3>С защитой</h3>';
+ $title = htmlentities($title);
+ echo  $title;
+
 //3. Автоматическая защита от инъекций (использование параметров запросов)
 $title = "8 подруг Оушена";
 $genre = 'боевик, комедия';

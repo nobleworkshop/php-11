@@ -62,3 +62,8 @@ $result->execute();
 //либо в методе execute 
 //$result->execute(array($title,$genre));
 ```
+
+## Защита от JS инъекций
+```php
+$title = htmlentities($title);
+```
